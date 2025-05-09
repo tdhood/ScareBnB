@@ -28,7 +28,7 @@ VALUES('Hauntingly Isolated',
         'Remote',
     'No one can hear you scream',
     200,
-    'https://www.businessnhmagazine.com/UploadedFiles/Articles/8151/66581491_m.jpg',
+    'https://st3.depositphotos.com/4035913/13242/i/450/depositphotos_132427622-stock-illustration-haunted-spooky-house.jpg',
     5,
     3);
 
