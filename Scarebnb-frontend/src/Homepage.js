@@ -23,13 +23,10 @@ function Homepage() {
     async function loadGuestListings() {
       if (token) {
         // Check if token is available (either guest or logged-in user)
-        console.log("Homepage: Attempting to load listings with token:", token); 
         try {
           // ScareBnBApi.getListingsForGuest() returns the listings array directly
           let fetchedListing = await ScareBnBApi.getListingsForGuest();
-          console.log('did i fetch listings?', fetchedListing)
           setListings({ data: fetchedListing, isLoading: false });
-          console.log('looking for listings', 'listings.data', listings.data, 'listings', listings)
         } catch (err) {
           console.error("Error loading listings:", err);
           setListings({ data: null, isLoading: false }); // Set isLoading to false on error 

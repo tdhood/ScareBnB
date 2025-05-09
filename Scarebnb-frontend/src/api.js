@@ -101,7 +101,6 @@ class ScareBnBApi {
         console.log("is_guest")
         let res = await this.request(`guest`, {}, "get");
         this.token = res.token
-        console.log('token?????', this.token)
         return res;
     }
 
