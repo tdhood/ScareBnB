@@ -1,0 +1,51 @@
+- authentication
+
+- testing
+
+- listing outline
+
+
+further study
+    -map
+    -calender
+
+
+More Items:
+-search feature
+-liked items and storage(favorites)
+-user profile
+-list of listing (with search) (add tags?)
+
+
+
+Pages:
+-login/signup page
+-favorites
+
+
+-list of listing (homepage) - no authentication
+    -search
+    -list of houses with base details
+        -name/price/pic/rating
+    -like feature
+    -profile
+
+
+
+-individual listing - no authentication
+    -more detailed info
+    -host info (button for chat)
+    -price
+    -reviews
+
+
+-booking form - auth only 
+
+
+-profile - auth user only
+    -name
+    -email
+    -pic?
+
+
+-chat with host/visitors auth only
