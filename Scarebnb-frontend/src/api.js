@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://127.0.0.1:5000";
 
 /** API Class.
  *
@@ -11,36 +11,48 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000";
  */
 
 class ScareBnBApi {
-    
+
     static token = '';
 
     static async request(endpoint, data = {}, method = "get") {
         console.debug("API Call:", endpoint, data, method);
-    
+
         const url = `${BASE_URL}/${endpoint}`;
         const headers = { AuthToken: `${ScareBnBApi.token}` };
         const params = (method === "get")
-          ? data
-          : {};
-    
+            ? data
+            : {};
+
         try {
-          return (await axios({ url, method, data, params, headers, withCredentials: true})).data;
+            return (await axios({ url, method, data, params, headers, withCredentials: true })).data;
         } catch (err) {
             console.log("unobstructed error message", err)
-            console.error("API Error:", err.response);
-            let message = err.response.data.error.message;
+            let message = "An unknown error occured.";
+            if (err.response && err.response.data && err.response.data.error &&
+                err.response.data.error.message) {
+                message = err.response.data.error.message;
+                console.error("API Error:", err.response);
+            } else if (err.response && err.response.data &&                     
+                err.response.data.msg) {
+                    message = err.response.data.msg;
+            } else if (err.response && err.response.statusText) {               
+                // Fallback to status text if available                         
+                message = err.response.statusText;
+            } else if (err.message) {                                           
+                // Fallback to the general error message (e.g., for network errors)                                                                         
+                message = err.message;                                          
+            }                          
+            console.error("API Error:", message); // Log the refined message    
             throw Array.isArray(message) ? message : [message];
         }
     }
 
     // Individual API Routes
-//#####################################################################
-// LISTING ROUTES
+    //#####################################################################
+    // LISTING ROUTES
 
     /** Get listings */
     static async getListingsForGuest() {
-        console.debug("Token being sent:", ScareBnBApi.token);
-        console.log("getListingsForGuest")
         let res = await this.request(`guest/listings`);
         return res.listings;
     }
@@ -65,8 +77,8 @@ class ScareBnBApi {
     }
 
 
-//#####################################################################
-// USER ROUTES
+    //#####################################################################
+    // USER ROUTES
 
     /** User signup */
 
@@ -87,7 +99,7 @@ class ScareBnBApi {
     /** User is Guest */
     static async is_guest() {
         console.log("is_guest")
-        let res = await this.request(`guest`, {} ,"get");
+        let res = await this.request(`guest`, {}, "get");
         this.token = res.token
         console.log('token?????', this.token)
         return res;
