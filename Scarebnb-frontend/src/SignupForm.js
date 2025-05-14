@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import "./SignUpForm.css";
 
 
@@ -30,6 +31,8 @@ const DEFAULT_DATA = {
 function SignUpForm({ signup }) {
   const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorMessages, setErrorMessages] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate                                                               
+
 
   /** Update form input. */
   function handleChange(evt) {
@@ -47,6 +50,7 @@ function SignUpForm({ signup }) {
     evt.preventDefault();
     try {
       await signup(formData);
+      navigate("/");
     } catch (err) {
       setErrorMessages(err);
     }
