@@ -52,12 +52,12 @@ class ScareBnBApi {
     // LISTING ROUTES
 
     /** Get listings */
-    static async getListingsForGuest() {
-        let res = await this.request(`guest/listings`);
+    static async getAllListings() {
+        let res = await this.request(`all_listings`);
         return res.listings;
     }
 
-    static async getListings(user_id) {
+    static async getUserFavoriteListings(user_id) {
         let res = await this.request(`user/${user_id}/favorites`);
         return res.listings;
     }

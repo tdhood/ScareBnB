@@ -146,7 +146,7 @@ def login():
 # TODO: HostMessaging  UserProfile  UserLikes
 
 
-@app.get("/guest/listings")
+@app.get("/all_listings")
 def guest_listings():
     """returns JSON for all available properties
     [{id, title, description, price, image[], host_id, rating}]"""
