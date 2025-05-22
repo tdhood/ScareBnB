@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.App {                                                                                                                     
+  text-align: center;                                                                                                      
+  background-color: #000000; /* Ensure App div also has black background */                                                
+  min-height: 100vh; /* Make sure it covers the full viewport height */                                                    
+  color: #FFFFFF; /* Default text color for content within App */                                                          
+}                                                                                                                          
+                                                                                                                           
+/* Navigation Bar Styling */                                                                                               
+.Navigation {                                                                                                              
+  background-color: #000000; /* Black background for navbar */                                                             
+  padding: 1rem 2rem; /* Add some padding */                                                                               
+  display: flex; /* Use flexbox for layout */                                                                              
+  justify-content: space-between; /* Puts space between logo and links */                                                  
+  align-items: center; /* Vertically align items in the center */                                                          
+  border-bottom: 1px solid #333333; /* Optional: a subtle bottom border */                                                 
+}                                                                                                                          
+                                                                                                                           
+.Navigation a {                                                                                                            
+  color: #a95ae9; /* Light purple for nav links */                                                                         
+  margin: 0 10px; /* Spacing between nav links */                                                                          
+  font-size: 1.5em; /* Make font a bit larger for spooky effect */                                                         
+}                                                                                                                          
+                                                                                                                           
+.Navigation a:hover {                                                                                                      
+  color: #FFFFFF; /* White on hover */                                                                                     
+}                                                                                                                          
+                                                                                                                           
+/* Specifically for the brand/logo link if it's the first child NavLink */                                                 
+.Navigation > a:first-child {                                                                                              
+  font-size: 2em; /* Larger font for the brand name */                                                                     
+  color: #FFFFFF; /* White color for the main brand */                                                                     
+}                                                                                                                          
+                                                                                                                           
+.Navigation > a:first-child:hover {                                                                                        
+  color: #D8BFD8; /* Light purple on hover for brand */                                                                    
+}                                                                                                                          
+                                                                                                                           
+/* The div containing login/signup links already uses ms-auto from Bootstrap,                                              
+   which pushes it to the right. If more control is needed or Bootstrap isn't fully active: */                             
+.Navigation-links {                                                                                                        
+  display: flex; /* Ensures links within this div are also inline */                                                       
+}                                                                                                                          
+                                                                                                                           
+/* You can add more specific styles for light purple text if needed */                                                     
+.text-light-purple {                                                                                                       
+  color: #a95ae9;                                                                                                          
+}                                                                                                                          
+                                                                                                                           
+/* Homepage specific styling if needed */                                                                                  
+.Homepage h2 {                                                                                                             
+  color: #a95ae9; /* Example: Make H2 headings light purple */                                                             
+}                                                                                                                          
+                                                                                                                           
+.Homepage p {                                                                                                              
+  color: #FFFFFF; /* Ensure paragraphs are white */                                                                        
+}                                                                                                                          
+                                                                                                                           
+/* Listing Card specific styling */                                                                                        
+.ListingCard {                                                                                                             
+  background-color: #1a1a1a; /* Dark grey background for cards */                                                          
+  border: 1px solid #333333;                                                                                               
+  margin: 15px;                                                                                                            
+  padding: 15px;                                                                                                           
+  color: #FFFFFF; /* White text inside cards */                                                                            
+}                                                                                                                          
+                                                                                                                           
+.ListingCard h3 {                                                                                                          
+  color: #a95ae9; /* Light purple for listing titles */                                                                    
+}                                                                                                                          
+                                                                                                                           
+.ListingCard a {                                                                                                           
+  color: #a95ae9; /* Ensure links within cards are also light purple */                                                    
+}             

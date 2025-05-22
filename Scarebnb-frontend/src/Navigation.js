@@ -11,10 +11,11 @@ import UserContext from "./UserContext";
 //FIXME: Logout function
 function Navigation() {
   const { currUser } = useContext(UserContext);
+  console.log('currUser', currUser)
   return (
     <nav className="Navigation navbar navbar-expand-md container-fluid ms-auto">
       <NavLink key="homepage" to="/">ScareBnB</NavLink>
-      { currUser
+      { currUser && currUser.username !== 'guest'
       ?
         (<div className="Navigation-links ms-auto">
           <NavLink key="listingForm" to="/createlisting">Create Listing</NavLink>

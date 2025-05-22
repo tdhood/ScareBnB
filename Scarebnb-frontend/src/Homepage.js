@@ -28,8 +28,8 @@ function Homepage() {
         setListings(prevListings => ({ ...prevListings, isLoading: true }));
         console.log("Homepage: Attempting to load listings with token");
         try {
-          let fetchedData = await ScareBnBApi.getAllListings();
-          setListings({ data: fetchedData, isLoading: false });
+          let listings = await ScareBnBApi.getAllListings();
+          setListings({ data: listings, isLoading: false });
         } catch (err) {
           console.error("Error loading listings:", err);
           setListings({ data: null, isLoading: false });

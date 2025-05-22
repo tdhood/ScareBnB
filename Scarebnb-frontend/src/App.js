@@ -57,7 +57,7 @@ function App() {
           if (guestResponse.token) {                                            
             setToken(guestResponse.token);                                      
             // Optionally, if is_guest returns user-like data for 'guest':      
-            // setCurrUser({ data: guestResponse.user, infoLoaded: true });     
+            setCurrUser({ data: guestResponse.user, infoLoaded: true });     
             console.log("App.js: Guest token obtained and set.");               
           }                                                                     
         } catch (err) {                                                         
