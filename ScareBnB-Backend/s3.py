@@ -1,11 +1,11 @@
 
 import logging
 from re import S
-import boto3 # type: ignore
-from botocore.exceptions import ClientError # type: ignore
-from botocore.client import Config # type: ignore
+import boto3 
+from botocore.exceptions import ClientError 
+from botocore.client import Config 
 import os
-from dotenv import load_dotenv # type: ignore
+from dotenv import load_dotenv 
 import uuid
 
 # from filestorage import store
@@ -18,6 +18,7 @@ DO_SPACES_KEY = os.environ["DO_ACCESS_KEY"]
 DO_SPACES_SECRET = os.environ["DO_SECRET_KEY"]
 DO_REGION = os.environ["DO_REGION"]  # or sgp1, fra1, etc.
 DO_ENDPOINT = os.environ["DO_ENDPOINT_URL"]
+DO_URL = os.environ["DO_URL"]
 BUCKET = os.environ["BUCKET"]
 FOLDER = os.environ["FOLDER"]
 
@@ -49,11 +50,6 @@ if S3_CONFIGURED:
 else:                                                                                                                     
     print("⚠️ S3 not configured due to missing environment variables. Using placeholders for S3 operations.")             
       
-
-
-
-
-
 
 
 # session = boto3.session.Session()
@@ -105,7 +101,7 @@ def upload_file(file_name, bucket=BUCKET, object_name=None):
         )
 
         print('response', response)
-        image = f"https://{BUCKET}.sfo2.digitaloceanspaces.com/{object_name}"
+        image = f"{DO_URL}/{object_name}"
     except ClientError as e:
         print('Image did not upload')
         logging.error(e)

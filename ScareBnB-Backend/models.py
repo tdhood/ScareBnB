@@ -89,9 +89,7 @@ class User(db.Model):
 
         Hashes password and adds user to system.
         """
-        print("password", password)
         hashed_pwd = bcrypt.generate_password_hash(password).decode("UTF-8")
-        print("hashed", hashed_pwd)
         user = User(
             username=username,
             email=email,
@@ -119,7 +117,6 @@ class User(db.Model):
         """
 
         user = cls.query.filter_by(username=username).one_or_none()
-        print('do i find guest?', user)
 
         if user:
             is_auth = bcrypt.check_password_hash(user.password, password)

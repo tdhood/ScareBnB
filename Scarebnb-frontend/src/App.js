@@ -77,6 +77,7 @@ function App() {
     let response = await ScareBnBApi.login(loginData)
     setToken(response.token)
     setCurrUser({data: response.user, infoLoaded: true});
+    console.log('app.jy login', response.user)
   }
 
   async function signup(signupData) {
@@ -90,19 +91,13 @@ function App() {
     return response.listings
   }
 
-  //  function getGuestToken() {
-  //   const response = await ScareBnBApi.is_guest();
-  //   setToken(response.token)
-  //   ScareBnBApi.token = response.token;
-  //   setCurrUser({data: response.user, infoLoaded: true})
-  // }
   
   return (
     <div className="App">
     <UserContext.Provider value={{ currUser: currUser.data, token }}>
       <BrowserRouter>
       <Navigation />
-      <RouteList login={login} signup={signup} create={create}/>
+      <RouteList login={login} signup={signup} create={create} />
       </BrowserRouter>
      </UserContext.Provider>
     </div>

@@ -1,8 +1,8 @@
 from wsgiref.validate import validator
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, TextAreaField, IntegerField, BooleanField, FileField
+from wtforms import StringField, PasswordField, TextAreaField, IntegerField, BooleanField
 from wtforms.validators import DataRequired, InputRequired, Email, Length, Optional
-
+from flask_wtf.file import FileField
 
 # class MessageForm(FlaskForm):
 #     """Form for adding/editing messages."""
@@ -61,7 +61,6 @@ class ListingAddForm(FlaskForm):
     location = StringField('Location', validators=[InputRequired()])
     price = IntegerField('Price', validators=[InputRequired()])
     image_file = StringField('image_file', validators=[Optional()])
-    rating = IntegerField('Rating', validators=[Optional()])
     user_id = IntegerField('User id', validators=[InputRequired()])
     files = FileField('Files', validators=[Optional()])
 

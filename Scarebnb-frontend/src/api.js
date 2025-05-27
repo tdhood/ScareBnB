@@ -62,6 +62,13 @@ class ScareBnBApi {
         return res.listings;
     }
 
+    /**Create new listing */
+
+    static async createListing(data) {
+        let res = await this.request(`newlisting`, data, "post");
+        return res.listing;
+    }
+
     /** Get details for listing on a listing id */
 
     static async getListing(id) {
@@ -69,12 +76,6 @@ class ScareBnBApi {
         return res.listing;
     }
 
-    /**Create new listing */
-
-    static async createListing(data) {
-        let res = await this.request(`listing`, data, "post");
-        return res.listing;
-    }
 
 
     //#####################################################################
@@ -98,7 +99,6 @@ class ScareBnBApi {
 
     /** User is Guest */
     static async is_guest() {
-        console.log("is_guest")
         let res = await this.request(`guest`, {}, "get");
         this.token = res.token
         return res;

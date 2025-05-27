@@ -54,7 +54,8 @@ function Homepage() {
   const isGuestUser = currUser && currUser.username === "guest";
   // Determine if the current user is a logged-in (non-guest) user                                                        
   const isLoggedInUser = currUser && currUser.username !== "guest";
-
+  console.log("isGuest?=", isGuestUser)
+  console.log("isUser?=", isLoggedInUser)
     return (
       <div className="Homepage">
         {isLoggedInUser && (
